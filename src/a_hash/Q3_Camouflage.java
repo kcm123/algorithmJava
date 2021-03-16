@@ -1,4 +1,9 @@
 package a_hash;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 //    스파이들은 매일 다른 옷을 조합하여 입어 자신을 위장합니다.
 //    예를 들어 스파이가 가진 옷이 아래와 같고 오늘 스파이가 동그란 안경, 긴 코트, 파란색 티셔츠를 입었다면 다음날은 청바지를 추가로 입거나 동그란 안경 대신 검정 선글라스를 착용하거나 해야 합니다.
 //    종류	이름
@@ -32,8 +37,23 @@ package a_hash;
 //    2. blue_sunglasses
 //    3. smoky_makeup
 public class Q3_Camouflage {
-    public int solution(String[][] clothes) {
+    public static void main(String[] arg){
+//        String[][] clothes = {{"yellowhat", "headgear"}
+//                            , {"bluesunglasses", "eyewear"}
+//                            , {"green_turban", "headgear"}};
+        String[][] clothes = {{"crowmask", "face"}, {"bluesunglasses", "face"}, {"smoky_makeup", "face"}};
+        System.out.println(solution(clothes));
+    }
+    public static int solution(String[][] clothes) {
         int answer = 0;
+        answer = clothes.length;
+        Set<String> test = new HashSet<>();
+        for(int i = clothes.length-1; i >= 1; i--){
+            if(!clothes[i][1].equals(clothes[i-1][1])){
+                test.add(clothes[i][0] + "_" + clothes[i][1]);
+            }
+        }
+        answer += test.size();
         return answer;
     }
 }

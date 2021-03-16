@@ -30,7 +30,6 @@ public class Q2_PhoneNo {
         System.out.println(solution(phone_book));
     }
     public static boolean solution(String[] phone_book) {
-        // 1. contains
         Arrays.sort(phone_book);
         boolean result = true;
         for (int i=0; i<phone_book.length-1; i++) {
@@ -40,11 +39,6 @@ public class Q2_PhoneNo {
             }
         }
         return result;
-        // 2. stream 사용
-//        String text = String.format(" %s", String.join(" ", phone_book));
-//        return !Arrays.stream(phone_book)
-//                .anyMatch(s -> text.split(String.format(" %s", s)).length > 2);
-
         // myCode
 //        boolean answer = true;
 //        Arrays.sort(phone_book);
