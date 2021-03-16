@@ -1,8 +1,8 @@
-package list;
+package a_sorting;
 
 import java.util.Arrays;
 
-public class Question3 {
+public class Q3_HIndex {
     public static void main(String[] arg){
         int[] numbers = {3, 0, 6, 1, 5};
         System.out.println(solution(numbers));
