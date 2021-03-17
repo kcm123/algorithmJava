@@ -24,7 +24,7 @@ import java.util.Arrays;
 //    한 번호가 다른 번호의 접두사인 경우가 없으므로, 답은 true입니다.
 //    입출력 예 #3
 //    첫 번째 전화번호, “12”가 두 번째 전화번호 “123”의 접두사입니다. 따라서 답은 false입니다.
-public class Q2_PhoneNo {
+public class Q2_PhoneNo { // 전화번호 목록
     public static void main(String[] arg){
         String[] phone_book = {"12","123","1235","567","88"};
         System.out.println(solution(phone_book));

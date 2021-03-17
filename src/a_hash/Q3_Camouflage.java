@@ -36,7 +36,7 @@ import java.util.Set;
 //    1. crow_mask
 //    2. blue_sunglasses
 //    3. smoky_makeup
-public class Q3_Camouflage {
+public class Q3_Camouflage { // 위장
     public static void main(String[] arg){
 //        String[][] clothes = {{"yellowhat", "headgear"}
 //                            , {"bluesunglasses", "eyewear"}

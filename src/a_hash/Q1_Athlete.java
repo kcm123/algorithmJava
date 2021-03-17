@@ -21,7 +21,7 @@ import java.util.*;
 //    "vinko"는 참여자 명단에는 있지만, 완주자 명단에는 없기 때문에 완주하지 못했습니다.
 //    예제 #3
 //    "mislav"는 참여자 명단에는 두 명이 있지만, 완주자 명단에는 한 명밖에 없기 때문에 한명은 완주하지 못했습니다.
-public class Q1_Athlete {
+public class Q1_Athlete { // 완주하지 못한 선수
     public static void main(String[] arg){
         String[] participant = {"leo", "kiki", "eden"};
         String[] completion = {"eden", "kiki"};
