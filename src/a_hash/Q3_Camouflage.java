@@ -45,6 +45,8 @@ public class Q3_Camouflage { // 위장
         System.out.println(solution(clothes));
     }
     public static int solution(String[][] clothes) {
+
+        // myCode
         int answer = 0;
         answer = clothes.length;
         Set<String> test = new HashSet<>();

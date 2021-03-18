@@ -1,5 +1,6 @@
 package a_bruteforceSearch;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 //    수포자는 수학을 포기한 사람의 준말입니다. 수포자 삼인방은 모의고사에 수학 문제를 전부 찍으려 합니다. 수포자는 1번 문제부터 마지막 문제까지 다음과 같이 찍습니다.
@@ -30,32 +31,48 @@ public class Q1_Test { // 모의고사
         int[] answers = {1,3,2,4,2};
         solution(answers);
     }
-    public static int[] solution(int[] answers) {
-        int[] answer = {};
-        int[] first = {1, 2, 3, 4, 5}; //5
-        int[] second = {2, 1, 2, 3, 2, 4, 2, 5};//8
-        int[] third = {3, 3, 1, 1, 2, 2, 4, 4, 5, 5};//10
-        int rs1 = 0; int rs2 = 0; int rs3 = 0;
-        for(int i = 0; i < answers.length; i++){
-            if(answers[i] == first[i]) rs1+=1;
-            if(answers[i] == second[i]) rs2+=1;
-            if(answers[i] == third[i]) rs3+=1;
-        } // 1, 2   1, 3    2, 3
-        if(Integer.compare(rs1, rs2) == 1 && Integer.compare(rs1, rs3) == 1){
-            answer = new int[]{1};
-        }else if(Integer.compare(rs2, rs1) == 1 && Integer.compare(rs2, rs3) == 1){
-            answer = new int[]{2};
-        }else if(Integer.compare(rs3, rs1) == 1 && Integer.compare(rs3, rs2) == 1){
-            answer = new int[]{3};
-        }else if(Integer.compare(rs1, rs2) == 0 && Integer.compare(rs1, rs3) == 1){ // 1, 2
-            answer = new int[]{1, 2};
-        }else if(Integer.compare(rs1, rs2) == 1 && Integer.compare(rs1, rs3) == 0){ // 1, 3
-            answer = new int[]{1, 3};
-        }else if(Integer.compare(rs2, rs1) == 1 && Integer.compare(rs2, rs3) == 0){ // 2, 3
-            answer = new int[]{2, 3};
-        }else{
-            answer = new int[]{1, 2, 3};
+    public static int[] solution(int[] answer) {
+        int[] a = {1, 2, 3, 4, 5}; // 5
+        int[] b = {2, 1, 2, 3, 2, 4, 2, 5}; // 8
+        int[] c = {3, 3, 1, 1, 2, 2, 4, 4, 5, 5}; // 10
+        int[] score = new int[3];
+        for(int i=0; i<answer.length; i++) {
+            if(answer[i] == a[i%a.length]) {score[0]++;}
+            if(answer[i] == b[i%b.length]) {score[1]++;}
+            if(answer[i] == c[i%c.length]) {score[2]++;}
         }
-        return answer;
+        int maxScore = Math.max(score[0], Math.max(score[1], score[2]));
+        ArrayList<Integer> list = new ArrayList<>();
+        if(maxScore == score[0]) {list.add(1);}
+        if(maxScore == score[1]) {list.add(2);}
+        if(maxScore == score[2]) {list.add(3);}
+        return list.stream().mapToInt(i->i.intValue()).toArray();
+        // myCode
+//        int[] answer = {};
+//        int[] first = {1, 2, 3, 4, 5}; //5
+//        int[] second = {2, 1, 2, 3, 2, 4, 2, 5};//8
+//        int[] third = {3, 3, 1, 1, 2, 2, 4, 4, 5, 5};//10
+//        int rs1 = 0; int rs2 = 0; int rs3 = 0;
+//        for(int i = 0; i < answers.length; i++){
+//            if(answers[i] == first[i]) rs1+=1;
+//            if(answers[i] == second[i]) rs2+=1;
+//            if(answers[i] == third[i]) rs3+=1;
+//        } // 1, 2   1, 3    2, 3
+//        if(Integer.compare(rs1, rs2) == 1 && Integer.compare(rs1, rs3) == 1){
+//            answer = new int[]{1};
+//        }else if(Integer.compare(rs2, rs1) == 1 && Integer.compare(rs2, rs3) == 1){
+//            answer = new int[]{2};
+//        }else if(Integer.compare(rs3, rs1) == 1 && Integer.compare(rs3, rs2) == 1){
+//            answer = new int[]{3};
+//        }else if(Integer.compare(rs1, rs2) == 0 && Integer.compare(rs1, rs3) == 1){ // 1, 2
+//            answer = new int[]{1, 2};
+//        }else if(Integer.compare(rs1, rs2) == 1 && Integer.compare(rs1, rs3) == 0){ // 1, 3
+//            answer = new int[]{1, 3};
+//        }else if(Integer.compare(rs2, rs1) == 1 && Integer.compare(rs2, rs3) == 0){ // 2, 3
+//            answer = new int[]{2, 3};
+//        }else{
+//            answer = new int[]{1, 2, 3};
+//        }
+//        return answer;
     }
 }
