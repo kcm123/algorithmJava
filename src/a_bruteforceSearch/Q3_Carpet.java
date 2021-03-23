@@ -19,29 +19,30 @@ public class Q3_Carpet { // 카펫
     }
 
     public static int[] solution(int brown, int yellow) {
-        // myCode 76.9/100
-        int[] answer = new int[2];
-        int test = brown + yellow;
-        // (8 6)    12 4    16 3    24 2    48 1    <24 24>
-        // (3 3)    9 1     <8 1>
-        // (4 3)    6 2     12 1    <10 2>
-        for(int i = 1; i <= test; i++){
-            int width = i;
-            if(test % width == 0){ // 24
-                int height = test / width;
-                if(width >= height){ // Math.round((double)width/2 + (double)height/2) == width
-                    answer[0] = width;
-                    answer[1] = height;
-                    return answer;
-                }
-            }
-        }
-
+//        brown의 갯수는 "2x + 2y - 4"
 //        answer1
-//        int a = (brown+4)/2;
-//        int b = red+2*a-4;
-//        int[] answer = {(int)(a+Math.sqrt(a*a-4*b))/2,(int)(a-Math.sqrt(a*a-4*b))/2};
+//    수학적으로 생각해보면 변수가 2개이고 수식이 2개가 있는 형태이다.
+//    brown+yellow = 상수, brown*yellow = 상수 이렇게 수식을 놓을 수 있다.
+//    그러면 2차 방정식의 해를 구하는 문제와 똑같아진다.
+//    brown = 상수/yellow 이므로 대입하면 상수+yellow^2 = 상수*yellow가 된다.
+//        int a = (brown + 4) / 2;
+//        int b = yellow + 2 * a - 4;
+//        int test = a * a - 4 * b;
+//        int sqrt = (int) Math.sqrt(test);
+//        int width = (a + sqrt) / 2;
+//        int height = (a - sqrt) / 2;
+//        int[] answer = {(int)(a + Math.sqrt(a * a - 4 * b)) / 2, (int)(a - Math.sqrt(a * a - 4 * b)) / 2};
 //        return answer;
+        int hap = brown + yellow;
+        int multi = brown * yellow;
+        int x = 0; int y = 0;
+//        (12 - y) * y = 20;
+        return null;
+//        int edge = (brown / 2) + 2;
+//        int difference = (int) Math.sqrt(edge * edge - (brown + yellow) * 4);
+//        edge = (edge - difference) / 2;
+//        return new int[] { edge+ difference, edge };
+
 //        answer2
 //        int height = 0;
 //        int width = 0;
@@ -58,11 +59,22 @@ public class Q3_Carpet { // 카펫
 //        int[] answer = new int[] { width, height };
 //        return answer;
 
-//        answer2
-//        int a = (brown+4)/2;
-//        int b = red+2*a-4;
-//        int[] answer = {(int)(a+Math.sqrt(a*a-4*b))/2,(int)(a-Math.sqrt(a*a-4*b))/2};
+        // TODO myCode 76.9/100
+//        int[] answer = new int[2];
+//        int test = brown + yellow;
+//        // (8 6)    12 4    16 3    24 2    48 1    <24 24>
+//        // (3 3)    9 1     <8 1>
+//        // (4 3)    6 2     12 1    <10 2>
+//        for(int i = 1; i <= test; i++){
+//            int width = i;
+//            if(test % width == 0){ // 24
+//                int height = test / width;
+//                if(width >= height){ // Math.round((double)width/2 + (double)height/2) == width
+//                    answer[0] = width; answer[1] = height;
+//                    return answer;
+//                }
+//            }
+//        }
 //        return answer;
-        return answer;
     }
 }
