@@ -13,12 +13,56 @@ package a_bruteforceSearch;
 //    8	    1	    [3, 3] 1.5  1.5 1
 //    24	24	    [8, 6] 4    3   24
 public class Q3_Carpet { // 카펫
-
+    public static void main(String[] args){
+        int[] answer = solution(24, 24);
+        System.out.println(answer);
+    }
 
     public static int[] solution(int brown, int yellow) {
-        int[] answer = {};
-        int test = brown + yellow; // 12 1*12 / 2*6 3*4 4*3 6*2 /  12*1  w * h
+        // myCode 76.9/100
+        int[] answer = new int[2];
+        int test = brown + yellow;
+        // (8 6)    12 4    16 3    24 2    48 1    <24 24>
+        // (3 3)    9 1     <8 1>
+        // (4 3)    6 2     12 1    <10 2>
+        for(int i = 1; i <= test; i++){
+            int width = i;
+            if(test % width == 0){ // 24
+                int height = test / width;
+                if(width >= height){ // Math.round((double)width/2 + (double)height/2) == width
+                    answer[0] = width;
+                    answer[1] = height;
+                    return answer;
+                }
+            }
+        }
 
+//        answer1
+//        int a = (brown+4)/2;
+//        int b = red+2*a-4;
+//        int[] answer = {(int)(a+Math.sqrt(a*a-4*b))/2,(int)(a-Math.sqrt(a*a-4*b))/2};
+//        return answer;
+//        answer2
+//        int height = 0;
+//        int width = 0;
+//        for (height = 3; height <= (int) (brown + 4) / 2; height++) {
+//            width = ((brown + 4) / 2) - height;
+//            if (width < height) {
+//                break;
+//            }
+//            int redCount = (width - 2) * (height - 2);
+//            if (red == redCount) {
+//                break;
+//            }
+//        }
+//        int[] answer = new int[] { width, height };
+//        return answer;
+
+//        answer2
+//        int a = (brown+4)/2;
+//        int b = red+2*a-4;
+//        int[] answer = {(int)(a+Math.sqrt(a*a-4*b))/2,(int)(a-Math.sqrt(a*a-4*b))/2};
+//        return answer;
         return answer;
     }
 }

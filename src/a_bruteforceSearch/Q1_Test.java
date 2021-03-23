@@ -28,7 +28,7 @@ import java.util.Arrays;
 //    모든 사람이 2문제씩을 맞췄습니다.
 public class Q1_Test { // 모의고사
     public static void main(String[] args){
-        int[] answers = {1,3,2,4,2};
+        int[] answers = {1,3,2,4,2, 1,3,2,4,2};
         solution(answers);
     }
     public static int[] solution(int[] answer) {
@@ -74,5 +74,6 @@ public class Q1_Test { // 모의고사
 //            answer = new int[]{1, 2, 3};
 //        }
 //        return answer;
+
     }
 }

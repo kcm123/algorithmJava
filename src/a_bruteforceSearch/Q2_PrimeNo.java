@@ -41,7 +41,7 @@ public class Q2_PrimeNo { // 소수 찾기_HashSet, 재귀, 소수
     // 소수여부
     public boolean isPrime(int n){
         if(n==0 || n==1) return false;
-        for(int i=3; i<=(int)Math.sqrt(n); i+=2){
+        for(int i=3; i<=(int)Math.sqrt(n); i+=2){ // root 17 -> 4
             if(n%i==0) return false;
         }
         return true;
@@ -53,10 +53,13 @@ public class Q2_PrimeNo { // 소수 찾기_HashSet, 재귀, 소수
             set.add(Integer.valueOf(prefix));
         }
         for(int i = 0; i < n; i++) {
-            System.out.println("prefix : " + prefix + str.charAt(i));
-            System.out.println("str : " + str.substring(0, i) + str.substring(i + 1, n));
             permutation(prefix + str.charAt(i), str.substring(0, i) + str.substring(i + 1, n), set);
         }
     }
+//        i = 3, n = 8
+//        0 1234 56 78
+//        아롱이는이쁜이다
+//        prefix = prefix + str.charAt(3)		아롱이 + 는
+//        str = str.substring(0, i) + str.substring(i + 1, n)		아롱이는 + 이쁜이다
 
 }
