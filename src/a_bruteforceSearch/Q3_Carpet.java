@@ -33,11 +33,6 @@ public class Q3_Carpet { // 카펫
 //        int height = (a - sqrt) / 2;
 //        int[] answer = {(int)(a + Math.sqrt(a * a - 4 * b)) / 2, (int)(a - Math.sqrt(a * a - 4 * b)) / 2};
 //        return answer;
-        int hap = brown + yellow;
-        int multi = brown * yellow;
-        int x = 0; int y = 0;
-//        (12 - y) * y = 20;
-        return null;
 //        int edge = (brown / 2) + 2;
 //        int difference = (int) Math.sqrt(edge * edge - (brown + yellow) * 4);
 //        edge = (edge - difference) / 2;
@@ -52,13 +47,27 @@ public class Q3_Carpet { // 카펫
 //                break;
 //            }
 //            int redCount = (width - 2) * (height - 2);
-//            if (red == redCount) {
+//            if (yellow == redCount) {
 //                break;
 //            }
 //        }
 //        int[] answer = new int[] { width, height };
 //        return answer;
 
+//        answer3
+        int[] answer = {};
+        int size = (brown - 4) / 2;
+        int w = size % 2 == 0 ? size / 2 : size / 2 + 1, h = size - w;
+        while(h >= 1) {
+            if(w * h == yellow) {
+                answer = new int[]{w + 2, h + 2};
+                break;
+            }
+            w++;
+            h--;
+
+        }
+        return answer;
         // TODO myCode 76.9/100
 //        int[] answer = new int[2];
 //        int test = brown + yellow;
