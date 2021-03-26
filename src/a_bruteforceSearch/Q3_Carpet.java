@@ -33,6 +33,8 @@ public class Q3_Carpet { // 카펫
 //        int height = (a - sqrt) / 2;
 //        int[] answer = {(int)(a + Math.sqrt(a * a - 4 * b)) / 2, (int)(a - Math.sqrt(a * a - 4 * b)) / 2};
 //        return answer;
+
+//        answer1.1
 //        int edge = (brown / 2) + 2;
 //        int difference = (int) Math.sqrt(edge * edge - (brown + yellow) * 4);
 //        edge = (edge - difference) / 2;
