@@ -27,7 +27,7 @@ import java.util.*;
 //    고유 번호 4: 2,500회 재생
 //    고유 번호 1: 600회 재생
 //    따라서 pop 장르의 [4, 1]번 노래를 먼저, classic 장르의 [3, 0]번 노래를 그다음에 수록합니다.
-public class Q4_BestAlbum { // 베스트 앨범
+public class Q4_BestAlbum { // Level3_베스트 앨범
     public static void main(String[] args){
         String[] genres = {"classic", "pop", "classic", "classic", "pop"};
         int[] plays = {500, 600, 150, 800, 2500};
