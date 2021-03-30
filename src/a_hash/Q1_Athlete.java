@@ -40,7 +40,7 @@ public class Q1_Athlete { // Level1_완주하지 못한 선수
             }
         }
         return answer;
-        // myCode
+        // myCode1
 //        String answer = "";
 //        Arrays.sort(participant);
 //        Arrays.sort(completion);
@@ -51,6 +51,15 @@ public class Q1_Athlete { // Level1_완주하지 못한 선수
 //            if(!participant[i].equals(completion[i])){
 //                return participant[i];
 //            }
+//        }
+//        return answer;
+        // myCode2
+//        String answer = "";
+//        Arrays.sort(participant);
+//        Arrays.sort(completion);
+//        for(int i = 0; i < participant.length; i++){
+//            if(i <= completion.length-1 && !participant[i].equals(completion[i])) return participant[i];
+//            if(i == participant.length -1) return participant[i];
 //        }
 //        return answer;
     }

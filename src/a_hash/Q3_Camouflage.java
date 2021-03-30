@@ -1,8 +1,6 @@
 package a_hash;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 //    스파이들은 매일 다른 옷을 조합하여 입어 자신을 위장합니다.
 //    예를 들어 스파이가 가진 옷이 아래와 같고 오늘 스파이가 동그란 안경, 긴 코트, 파란색 티셔츠를 입었다면 다음날은 청바지를 추가로 입거나 동그란 안경 대신 검정 선글라스를 착용하거나 해야 합니다.
@@ -38,24 +36,39 @@ import java.util.Set;
 //    3. smoky_makeup
 public class Q3_Camouflage { // Level2_위장
     public static void main(String[] arg){
-//        String[][] clothes = {{"yellowhat", "headgear"}
-//                            , {"bluesunglasses", "eyewear"}
-//                            , {"green_turban", "headgear"}};
-        String[][] clothes = {{"crowmask", "face"}, {"bluesunglasses", "face"}, {"smoky_makeup", "face"}};
+        String[][] clothes = {{"yellowhat", "headgear"}
+                            , {"bluesunglasses", "eyewear"}
+                            , {"green_turban", "headgear"}};
+//        String[][] clothes = {{"crowmask", "face"}, {"bluesunglasses", "face"}, {"smoky_makeup", "face"}};
         System.out.println(solution(clothes));
     }
+    // (n + 1) * (m + 1) * (o + 1) * (p + 1) - 1   4종류의 옷과 그 옷이 {n, m, o, p}의 개수로 있을 때
     public static int solution(String[][] clothes) {
-
-        // myCode
-        int answer = 0;
-        answer = clothes.length;
-        Set<String> test = new HashSet<>();
-        for(int i = clothes.length-1; i >= 1; i--){
-            if(!clothes[i][1].equals(clothes[i-1][1])){
-                test.add(clothes[i][0] + "_" + clothes[i][1]);
+        int answer = 1;
+        HashMap<String, Integer> map = new HashMap<>();
+        for(int i=0; i<clothes.length; i++){
+            String key = clothes[i][1];
+            if(!map.containsKey(key)) {
+                map.put(key, 1);
+            } else {
+                map.put(key, map.get(key) + 1);
             }
         }
-        answer += test.size();
-        return answer;
+        Iterator<Integer> it = map.values().iterator();
+        while(it.hasNext()) {
+            answer *= it.next().intValue()+1;
+        }
+        return answer-1;
+        // myCode
+//        int answer = 0;
+//        answer = clothes.length;
+//        Set<String> test = new HashSet<>();
+//        for(int i = clothes.length-1; i >= 1; i--){
+//            if(!clothes[i][1].equals(clothes[i-1][1])){
+//                test.add(clothes[i][0] + "_" + clothes[i][1]);
+//            }
+//        }
+//        answer += test.size();
+//        return answer;
     }
 }
