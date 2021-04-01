@@ -60,7 +60,11 @@ public class Q4_Printer { // Level2_프린터
             }
         }
         return answer;
-
+//location이 0보다 작다는 소리는 큐의 맨 앞까지 우선순위 검증을 한 상태다.
+//if 문의 location-- 경우에는 우선순위와 같은 상태이므로 반복을 종료시키면 되지만,
+//else 문의 location-- 경우에는 우선순위에서 밀려 제일 뒤로 순위가 밀린 상태이므로 제일 마지막 인덱스를 가리키도록 재할당해준다.
+//배열을 오름차순으로 정렬해놓았으므로, 가장 높은 우선순위를 비교했다면, 더이상 그 수를 바라 볼 필요가 없다.
+// 그 다음으로 큰 우선순위를 바라볼 수 있도록 length - answer 를 수행한다.
         // myCode_결과값은 나오나 최종에서 실패
 //        int answer = 0;
 //        List list = new ArrayList<>();
