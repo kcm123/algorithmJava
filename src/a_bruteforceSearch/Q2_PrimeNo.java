@@ -61,5 +61,10 @@ public class Q2_PrimeNo { // 소수 찾기_HashSet, 재귀, 소수
 //        아롱이는이쁜이다
 //        prefix = prefix + str.charAt(3)		아롱이 + 는
 //        str = str.substring(0, i) + str.substring(i + 1, n)		아롱이는 + 이쁜이다
-
+//                        prefix	str.charAt(i)	str.substring(0, i)	str.substring(i + 1, n)
+//        ("", "17", 0);	 		1	 								7
+//        ("1", "7", 1);	1		7
+//        ("17", "", 2);			7				1
+//        ("7", "1", 3);	7		1
+//        ("71", "", 4);
 }
