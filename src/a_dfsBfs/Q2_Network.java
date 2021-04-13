@@ -26,7 +26,7 @@ public class Q2_Network {
         int[][] computers = {{1, 1, 0}, {1, 1, 1}, {0, 1, 1}};
         System.out.println(solution(3, computers));
     }
-    public boolean[] dfs(int[][] computers, int i, boolean[] check) {
+    public static boolean[] dfs(int[][] computers, int i, boolean[] check) {
         check[i] = true;
 
         for (int j = 0; j < computers.length; j++) {
