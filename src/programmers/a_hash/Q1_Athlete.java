@@ -23,22 +23,33 @@ import java.util.*;
 //    "mislav"는 참여자 명단에는 두 명이 있지만, 완주자 명단에는 한 명밖에 없기 때문에 한명은 완주하지 못했습니다.
 public class Q1_Athlete { // Level1_완주하지 못한 선수
     public static void main(String[] arg){
-        String[] participant = {"leo", "kiki", "eden"};
-        String[] completion = {"eden", "kiki"};
+        String[] participant = {"mislav", "stanko", "mislav", "ana"};
+        String[] completion = {"stanko", "ana", "mislav"};
         System.out.println(solution(participant, completion));
     }
     public static String solution(String[] participant, String[] completion) {
         // code
+//        String answer = "";
+//        HashMap<String, Integer> hm = new HashMap<>();
+//        for (String player : participant) hm.put(player, hm.getOrDefault(player, 0) + 1);
+//        for (String player : completion) hm.put(player, hm.get(player) - 1);
+//
+//        for (String key : hm.keySet()) {
+//            if (hm.get(key) != 0){
+//                answer = key;
+//            }
+//        }
+//        return answer;
+        // myCode3 (2021-05-27)
         String answer = "";
-        HashMap<String, Integer> hm = new HashMap<>();
-        for (String player : participant) hm.put(player, hm.getOrDefault(player, 0) + 1);
-        for (String player : completion) hm.put(player, hm.get(player) - 1);
-
-        for (String key : hm.keySet()) {
-            if (hm.get(key) != 0){
-                answer = key;
+        Arrays.sort(participant);
+        Arrays.sort(completion);
+        for(int i = 0; i < participant.length; i++){
+            if(i < completion.length && !participant[i].equals(completion[i])){
+                answer = participant[i];
             }
         }
+        if(answer.equals("")) answer = participant[participant.length-1];
         return answer;
         // myCode1
 //        String answer = "";
