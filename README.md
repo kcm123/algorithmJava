@@ -1,16 +1,28 @@
-컴퓨터 기초
-- 운영체제
-- 알고리즘
-- 자료구조
-- 네트워크
+# Algorithm (Java)
 
-인공지능
-- 기초
-- 선형대수
-- 통계
-- 알고리즘
 
-알고리즘
-1. codeUp 100제 4/22~4/30 (9)
-2. codeForces
-3. 백준
+
+## 프로그래머스
+
+```java
+/src/programmers/
+```
+
+#### A. 출제 빈도 높음
+
+- 해시 → a_hash
+- 정렬 → a_sorting
+- 완전탐색 → a_bruteforceSearch
+- 깊이/너비 우선 탐색(DFS/BFS) → a_dfsBfs
+
+#### B. 출제 빈도 보통
+
+- 스택/큐 → b_stackQueue
+- 힙(Heap) → b_heap
+
+#### C. 출제 빈도 낮음
+
+- 탐욕법(Greedy) → 
+- 동적계획법(Dynamic Programming) → 
+- 이분탐색 → 
+- 그래프 → 
