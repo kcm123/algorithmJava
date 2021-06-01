@@ -43,7 +43,31 @@ public class Q3_Camouflage { // Level2_위장
         System.out.println(solution(clothes));
     }
     // (n + 1) * (m + 1) * (o + 1) * (p + 1) - 1   4종류의 옷과 그 옷이 {n, m, o, p}의 개수로 있을 때
+
     public static int solution(String[][] clothes) {
+//        int answer = 1;
+//        Map<String, Object> map = new HashMap<>();
+//        for(int i = 0; i < clothes.length; i++){
+//            String key = clothes[i][1];
+//            if(!map.containsKey(key)){
+//                map.put(key, 1);
+//            }else{
+//                map.put(key, (Integer)map.get(key)+1);
+//            }
+//        }
+//        for(String key : map.keySet()){
+//            answer *= (int)map.get(key)+1;
+//        }
+//        return answer-1;
+//        int answer = clothes.length;
+//        for(int i = 0; i < clothes.length; i++){
+//            for(int j = i+1; j < clothes.length; j++){
+//                if(!clothes[i][1].equals(clothes[j][1])){
+//                    answer++;
+//                }
+//            }
+//        }
+//        return answer;
         int answer = 1;
         HashMap<String, Integer> map = new HashMap<>();
         for(int i=0; i<clothes.length; i++){
@@ -56,8 +80,9 @@ public class Q3_Camouflage { // Level2_위장
         }
         Iterator<Integer> it = map.values().iterator();
         while(it.hasNext()) {
-            answer *= it.next().intValue()+1;
+            answer *= it.next().intValue()+1; // answer *= (옷 가지수 + 안 입을 경우)
         }
+//        모두 다 안입는 경우는 존재하지 않으므로 -1
         return answer-1;
         // myCode
 //        int answer = 0;
