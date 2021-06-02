@@ -1,5 +1,7 @@
 package programmers.a_sorting;
 
+import com.sun.deploy.util.StringUtils;
+
 import java.util.*;
 
 //    0 또는 양의 정수가 주어졌을 때, 정수를 이어 붙여 만들 수 있는 가장 큰 수를 알아내 주세요.
@@ -15,24 +17,32 @@ import java.util.*;
 //    [3, 30, 34, 5, 9]	"9534330"
 public class Q2_LargestNo { // Level2_가장 큰 수
     public static void main(String[] arg){
-        int[] numbers = {6, 10, 2};
-        solution(numbers);
+        int[] numbers = {3, 30, 34, 5, 9};
+        System.out.println(solution(numbers));
     }
 
     public static String solution(int[] numbers) {
-        List<Integer> arr = new ArrayList<>();
+        List<String> arr = new ArrayList<>();
         for(int i = 0; i < numbers.length; i++){
-            arr.add(numbers[i]);
+            arr.add(String.valueOf(numbers[i]));
         }
         Collections.sort(arr, (a, b) -> {
-            String as = String.valueOf(a); String bs = String.valueOf(b);
-            return -Integer.compare(Integer.parseInt(as + bs), Integer.parseInt(bs + as)); // 역순 -1
+            return Integer.compare(Integer.parseInt(b + a), Integer.parseInt(a + b)); // 역순 -1
         });
-        StringBuffer sb = new StringBuffer();
-        for(Integer i : arr){
-            sb.append(i);
-        }
-        return sb.toString();
+        return StringUtils.join(arr, "");
+//        List<Integer> arr = new ArrayList<>();
+//        for(int i = 0; i < numbers.length; i++){
+//            arr.add(numbers[i]);
+//        }
+//        Collections.sort(arr, (a, b) -> {
+//            String as = String.valueOf(a); String bs = String.valueOf(b);
+//            return -Integer.compare(Integer.parseInt(as + bs), Integer.parseInt(bs + as)); // 역순 -1
+//        });
+//        StringBuffer sb = new StringBuffer();
+//        for(Integer i : arr){
+//            sb.append(i);
+//        }
+//        return sb.toString();
     }
 
 }
