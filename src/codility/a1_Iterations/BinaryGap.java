@@ -12,25 +12,22 @@ package codility.a1_Iterations;
 //    so its longest binary gap is of length 5. Given N = 32 the function should return 0, because N has binary representation '100000'
 //    and thus no binary gaps.
 //    N is an integer within the range [1..2,147,483,647].
-
 public class BinaryGap {
     public static void main(String[] args){
-        solution(529);
+        solution(1041);
     }
     public static int solution(int N) {
         int answer = 0;
-        String str = Integer.toBinaryString(N);
-        int start = 0; int end = 0;
-        System.out.println(str.indexOf("1"));
-//        for(int i = 0; i < str.length(); i++){
-//            if(str.substring(i, i) == "1"){
-//                if(start == 0){
-//
-//                }else{
-//
-//                }
-//            }
-//        }
+        char[] ch = Integer.toBinaryString(N).toCharArray();
+        int next = 0;
+        for(int i = 0; i < ch.length; i++){
+            if(ch[i] == '1') {
+                answer = Math.max(answer, next);
+                next = 0;
+            }else{
+                next++;
+            }
+        }
         return answer;
     }
 }
