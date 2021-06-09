@@ -26,6 +26,28 @@ package codility.a4_CountingElements;
 //    A[1] = 1
 //    A[2] = 3
 //    the function should return 0.
+import java.util.*;
 public class PermCheck {
+
+    public static void main(String[] args){
+        int[] A = {2, 2, 2};
+        System.out.println(solution(A));
+    }
+    public static int solution(int[] A){
+        int rs = 1;
+        if(A.length == 1) return (A[0] == 1) ? 1 : 0;
+        Arrays.sort(A);
+        if(A[0] != 1) return 0;
+        int next = 1;
+        for(int i = 0; i < A.length; i++){
+            if(i < A.length -1 && A[i] == A[i+1]) continue;
+            next ++;
+            if(A[i] != next-1){
+                return 0;
+            }
+        }
+        if(next == 2) rs = 0;
+        return rs;
+    }
 
 }

@@ -9,25 +9,32 @@ package codility.a4_CountingElements;
 //    N is an integer within the range [1..100,000];
 //    each element of array A is an integer within the range [−1,000,000..1,000,000].
 
-import java.util.Arrays;
+import java.util.*;
 
 public class MissingInteger { // Level2_Respectable
     public static void main(String[] args){
-        int[] A = {0, 3};
+        int[] A = {-1, -3};
         System.out.println(solution(A));
     }
     public static int solution(int[] A){
+        int rs = 1;
         Arrays.sort(A);
-        if(A.length == 1){
-            return (A[0] < 1) ? 1 : (A[0] > 1) ? 1 : A[0]+1;
+        for(int i = 0; i < A.length; i++){
+            if(A[i] < 1) continue;
+            if(A[i] == rs) rs++;
         }
-        if(A[A.length -1] < 1){
-            return 1;
-        }
-        if(A[0] != 1) return 1;
-        for(int i = 0; i < A.length-1; i++){
-            if(A[i] != A[i+1] && A[i] + 1 != A[i+1]) return A[i] + 1;
-        }
-        return A[A.length-1] + 1;
+        return rs;
+        // 66점
+//        Arrays.sort(A);
+//        if(A[A.length-1] < 1) return 1;
+//        if(A.length == 1) return A[0] <= 1 ? A[0]+1 : 1;
+//        List<Integer> list = new ArrayList<>();
+//        for(int i=0; i < A.length; i++){
+//            if(A[i] < 1) continue;
+//            if(list.indexOf(1) < 0 && A[i] != 1) return 1;
+//            if(list.indexOf(A[i]) < 0) list.add(A[i]);
+//            if(i == A.length-1 || A[i] != A[i+1] && A[i] + 1 != A[i+1]) return A[i]+1;
+//        }
+//        return A[A.length-1]+1;
     }
 }
