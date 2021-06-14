@@ -1,9 +1,10 @@
 package codility.a5_PrefixSums;
-//    A non-empty array A consisting of N integers is given. The consecutive elements of array A represent consecutive cars on a road.
+//    A non-empty array A consisting of N integers is given. The consecutive elements of array A represent
+//    consecutive cars on a road.
 //    Array A contains only 0s and/or 1s:
-//    0 represents a car traveling east,
-//    1 represents a car traveling west.
-//    The goal is to count passing cars. We say that a pair of cars (P, Q), where 0 ≤ P < Q < N, is passing when P is traveling to the east and Q is traveling to the west.
+//    0 represents a car traveling east,   1 represents a car traveling west.
+//    The goal is to count passing cars. We say that a pair of cars (P, Q), where 0 ≤ P < Q < N, is passing
+//    when P is traveling to the east and Q is traveling to the west.
 //    For example, consider array A such that:
 //    A[0] = 0
 //    A[1] = 1
@@ -26,4 +27,13 @@ package codility.a5_PrefixSums;
 //    N is an integer within the range [1..100,000];
 //    each element of array A is an integer that can have one of the following values: 0, 1.
 public class PassingCars {
+    public static void main(String[] args) {
+        int[] A = {0, 1, 0, 1, 1};
+        System.out.println(solution(A));
+    }
+    public static int solution(int[] A){
+        int rs = 0;
+
+        return rs;
+    }
 }
