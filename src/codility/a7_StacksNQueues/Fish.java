@@ -43,13 +43,22 @@ public class Fish {
     }
 
     public static int solution(int[] A, int[] B){
-        int rs = A.length;
-        int no = A[0];
-        boolean flag = false;
+        int rs = 0;
+        Stack<Integer> down = new Stack<>();
+        int lastSize;
         for(int i = 0; i < A.length; i++){
-            if(no != B[i]) flag = true;
+            if(B[i] == 1) {
+                down.push(A[i]);
+            }else{
+                while(!down.isEmpty()){
+                    lastSize = down.peek();
+                    if(lastSize > A[i]) break;
+                    else down.pop();
+                }
+                if(down.isEmpty()) rs ++;
+            }
         }
-        return rs;
+        return rs + down.size();
         // myCode_37
 //        List<Object> list = new ArrayList<>();
 //        int no = B[0];
