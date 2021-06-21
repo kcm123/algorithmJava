@@ -23,6 +23,7 @@ public class StoneWall {
         int[] H = {8, 8, 5, 7, 9, 8, 7, 4, 8};
         System.out.println(solution(H));
     }
+//https://lipcoder.tistory.com/entry/StoneWall-Codility
     public static int solution(int[] H){
         int result = 0;
         Stack<Integer> s = new Stack<Integer>();
