@@ -31,7 +31,7 @@ package codility.a9_MaximumSlice;
 import java.util.*;
 public class MaxProfit {
     public static void main(String[] args) {
-        int[] A = {8, 9, 3, 6, 1, 2}; //23171, 21011, 21123, 21366, 21013, 21367 8, 9, 3, 6, 1, 2 -3
+        int[] A = {23171, 21011, 21123, 21366, 21013, 21367}; //23171, 21011, 21123, 21366, 21013, 21367
         System.out.println(solution(A));
     }
     public static int  solution(int[] A){
@@ -39,7 +39,6 @@ public class MaxProfit {
         if(A.length < 2) return rs;
         Map<String, Integer> map = new HashMap<>();
         int min = A[0]; int max = 0;
-        map.put("min", 0);
         for(int i = 0; i < A.length; i++){
             if(map.getOrDefault("max", 1111)  > i && A[i] < min){
                 min = A[i];
