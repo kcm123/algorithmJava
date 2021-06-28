@@ -1,5 +1,6 @@
 package codility.a9_MaximumSlice;
-//    A non-empty array A consisting of N integers is given. A pair of integers (P, Q), such that 0 ≤ P ≤ Q < N, is called a slice of array A. The sum of a slice (P, Q) is the total of A[P] + A[P+1] + ... + A[Q].
+//    A non-empty array A consisting of N integers is given. A pair of integers (P, Q), such that 0 ≤ P ≤ Q < N
+//    , is called a slice of array A. The sum of a slice (P, Q) is the total of A[P] + A[P+1] + ... + A[Q].
 //    Write a function:
 //    class Solution { public int solution(int[] A); }
 //    that, given an array A consisting of N integers, returns the maximum sum of any slice of A.
@@ -17,5 +18,20 @@ package codility.a9_MaximumSlice;
 //    each element of array A is an integer within the range [−1,000,000..1,000,000];
 //    the result will be an integer within the range [−2,147,483,648..2,147,483,647].
 public class MaxSliceSum {
-
+    public static void main(String[] args) {
+        int[] A = {-10}; // 3, 2, -6, 4, 0
+        System.out.println(solution(A));
+    }
+    public static int solution(int[] A){
+        // 53점
+        int rs = -2147483648;
+        if(A.length < 2) return A[0];
+        for(int i = 1; i < A.length; i++){
+            int val = A[i-1] + A[i];
+            int val2 = A[i] > A[i-1] ? A[i] : A[i-1];
+            if(val2 > val) val = val2;
+            if(val > rs) rs = val;
+        }
+        return rs;
+    }
 }
