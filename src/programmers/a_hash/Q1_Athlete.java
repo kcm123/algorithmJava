@@ -73,5 +73,20 @@ public class Q1_Athlete { // Level1_완주하지 못한 선수
 //            if(i == participant.length -1) return participant[i];
 //        }
 //        return answer;
+        // myCode3_100_2021-07-01
+//        String rs = "";
+//        Map<String, Integer> map = new HashMap<>();
+//        for(int i = 0; i < participant.length; i++){
+//            map.put(participant[i], map.getOrDefault(participant[i], 0)+1);
+//        }
+//        for(int i = 0; i < completion.length; i++){
+//            if(map.get(completion[i]) == 1) map.remove(completion[i]);
+//            else if(map.get(completion[i]) > 1) map.put(completion[i], map.get(completion[i])-1);
+//        }
+//        Iterator<String> keys = map.keySet().iterator();
+//        while(keys.hasNext()){
+//            rs = keys.next();
+//        }
+//        return rs;
     }
 }

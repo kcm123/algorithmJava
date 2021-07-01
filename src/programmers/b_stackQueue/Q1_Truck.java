@@ -28,66 +28,47 @@ import java.util.*;
 //    100	100	[10,10,10,10,10,10,10,10,10,10]	110
 public class Q1_Truck { // Level2_다리를 지나는 트럭
     public static void main(String[] arg){
-        int[] truck_weight = {100};
-        System.out.println(solution(100, 100, truck_weight));
+        int[] truck_weight = {7, 4, 5, 6};
+        System.out.println(solution(2, 10, truck_weight));
     }
-// |	7	|
-// |	4	|
-// |	5	|
-// |	6	|
-// ㅡㅡㅡㅡㅡㅡ
     public static int solution(int bridge_length, int weight, int[] truck_weights) {
-        Stack<Integer> truckStack = new Stack<>();
-        Map<Integer, Integer> bridgeMap = new HashMap<>();
-        for (int i = truck_weights.length-1; i >= 0; i--){
-            truckStack.push(truck_weights[i]);
+        int rs = 0;
+        if(truck_weights.length == 1) return bridge_length + 1;
+        Queue<Integer> queue = new LinkedList<>();
+        Queue<Integer> passing = new LinkedList<>();
+        for(int i = 0; i < truck_weights.length; i++){
+            queue.add(truck_weights[i]);
         }
-        int answer = 0;
-        int sum = 0;
-        while(true) {
-            answer++;
-            if (bridgeMap.containsKey(answer)){
-                bridgeMap.remove(answer);
-            }
-            sum = bridgeMap.values().stream().mapToInt(Number::intValue).sum();
-            if (!truckStack.isEmpty()) { // 트럭이 비어있지 않을떄
-                if (sum + truckStack.peek() <= weight){ //
-                    bridgeMap.put(answer + bridge_length, truckStack.pop());
+        while(!(queue.isEmpty() && passing.isEmpty())){
+            if(!queue.isEmpty()){
+                int val = queue.peek();
+                if(passing.isEmpty()){
+                    passing.add(val);
+                    queue.poll();
+                    rs++;
+                }else{
+                    int val2 = passing.peek();
+                    int sum = passing.stream().mapToInt(Integer::intValue).sum() + val;
+                    if(passing.size()+1 <= bridge_length
+                            && sum <= weight){
+                        queue.poll();
+                        passing.add(val);
+                        rs++;
+                    }else{
+                        passing.poll();
+                        rs++;
+                        if(passing.stream().mapToInt(Integer::intValue).sum() + val <= weight){
+                            passing.add(val);
+                            queue.poll();
+                            rs++;
+                        }
+                    }
                 }
-            }
-            if (bridgeMap.isEmpty() && truckStack.isEmpty()){ // 맨마지막
-                break;
+            }else{
+                passing.poll();
+                rs++;
             }
         }
-        return answer;
-        // myCode_1번만 성공_실패
-//        int answer = 0; boolean flag = true;
-//        Queue<Integer> truck = new LinkedList<>();Queue<Integer> passing = new LinkedList<>();Queue<Integer> passed = new LinkedList<>();
-//        for(int i : truck_weights){ truck.add(i); }
-//        while(flag){
-//            if(passed.size() != truck_weights.length){
-//                if(truck.size() != 0){
-//                    int sum = passing.stream().mapToInt(Integer::intValue).sum() + truck.peek();
-//                    if(sum <= weight){
-//                        passing.add(truck.peek());
-//                        truck.poll();
-//                    }else{
-//                        passing.add(truck.peek());
-//                        truck.poll();
-//                        passed.add(passing.peek());
-//                        passing.poll();
-//                        answer++;
-//                    }
-//                    answer++;
-//                }else{
-//                    passed.add(passing.peek());
-//                    passing.poll();
-//                    answer++;
-//                }
-//            }else{
-//                flag = false;
-//            }
-//        }
-//        return answer;
+        return rs;
     }
 }
