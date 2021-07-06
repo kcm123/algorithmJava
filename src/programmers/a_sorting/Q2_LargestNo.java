@@ -1,6 +1,6 @@
 package programmers.a_sorting;
 
-import com.sun.deploy.util.StringUtils;
+//import com.sun.deploy.util.StringUtils;
 
 import java.util.*;
 
@@ -29,7 +29,7 @@ public class Q2_LargestNo { // Level2_가장 큰 수
         Collections.sort(arr, (a, b) -> {
             return Integer.compare(Integer.parseInt(b + a), Integer.parseInt(a + b)); // 역순 -1
         });
-        return StringUtils.join(arr, "");
+        return "";// StringUtils.join(arr, "");
 //        List<Integer> arr = new ArrayList<>();
 //        for(int i = 0; i < numbers.length; i++){
 //            arr.add(numbers[i]);
